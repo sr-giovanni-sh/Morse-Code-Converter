@@ -20,7 +20,7 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 func UploadHandler(w http.ResponseWriter, r *http.Request) {
 	file, header, err := r.FormFile("myFile")
 	if err != nil {
-		http.Error(w, "Failed to get file", http.StatusInternalServerError)
+		http.Error(w, "Failed to get file", http.StatusBadRequest)
 		return
 	}
 	defer file.Close()
